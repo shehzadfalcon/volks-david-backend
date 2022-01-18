@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
-var dotenv = require('dotenv');
-
-// getting path of dotenv file
-dotenv.config({path : "./config.env"})
 
 
-mongoose.connect(process.env.DATABSE,
+mongoose.connect(process.env.DATABASE,
 {
     useNewUrlParser: true,
     useFindAndModify: false,

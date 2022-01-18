@@ -1,42 +1,40 @@
-var mongoose = require('./mongoose');
-const STRINGS = require("../utils/texts")
+var mongoose = require("./mongoose");
+const STRINGS = require("../utils/texts");
 
-const userSchema = new mongoose.Schema({
-    userType : {
-        type : String,
-        required : true,
+const userSchema = new mongoose.Schema(
+  {
+    userType: {
+      type: String,
+      required: false,
+      default: "User",
     },
-    role: {
-        type: String,
-        default:'user'
-    },
-    firstname : {
-        type : String,
-        required : true
-    },
-    lastname : {
-        type : String,
-        required : true,
-    },
-    email : {
-        type : String,
-        required : true
-    },
-    phone : {
-        type : String,
-        required : true,
-    },
-    password : {
-        type : String,
-        required : true
-    },
-    date : {
-        type : String,
-        required : true
-    }
-});
 
+    firstname: {
+      type: String,
+      required: true,
+    },
+    lastname: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: false,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const userModel = new mongoose.model(STRINGS.MODALS.USER, userSchema)
+const userModel = new mongoose.model(STRINGS.MODALS.USER, userSchema);
 
-module.exports = userModel
+module.exports = userModel;
