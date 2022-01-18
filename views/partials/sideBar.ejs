@@ -1,0 +1,74 @@
+<div class="sideBar">
+
+    <div class="leftSideBarBox">
+
+
+        <!-- side bar item sbox -->
+        <div class="sideBarItemBox">
+
+            <div class="dropDownMenu">
+
+                <a href="/">
+                    <span> <i class="fas fa-tachometer-alt"></i> Dashboard</span>
+                </a>
+
+            </div>
+        </div>
+
+
+        <div class="sideBarItemBox">
+            <div class="dropDownMenu dropDownAble">
+                <span><i class="fas fa-shopping-cart"></i> Invoice</span>
+                <span class="dropDownIcone">&#10094;</span>
+            </div>
+            <ul class="sideBarMenuDropDownList" id="slideMenu_1">
+
+                <li>
+                    <a href="/customers">Customers</a>
+                </li>
+                <li>
+                    <a href="/generate-invoice">generate-invoice</a>
+                </li>
+                <li>
+                    <a href="/invoice-list">Invoice List</a>
+                </li>
+            </ul>
+        </div>
+
+        <%if(currentUser.userType == "Admin"){%>
+
+            <div class="sideBarItemBox">
+
+                <div class="dropDownMenu">
+
+                    <a href="/users-list">
+                        <span>
+                            <i class="fas fa-users"></i>
+                            Users
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+            
+        <%}%>
+        <div class="sideBarItemBox">
+
+            <div class="dropDownMenu">
+
+                <a href="logout">
+                    <span> <i class="fas fa-arrow-alt-circle-left"></i>
+                        logout
+                    </span>
+                </a>
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</div>

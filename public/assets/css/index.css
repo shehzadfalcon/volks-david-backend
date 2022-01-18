@@ -1,0 +1,1499 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color:; */
+    color: #5e6e82;
+    background-color: #e9f1fa;
+}
+
+:root{
+    --main-color: #5e6e82;
+    --main-background-color:#e9f1fa;
+    --main-fonts: 'Roboto', sans-serif;
+    --main-SecondBackgroundColor: #f9fafd;
+    --main-boxShadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+    --main-boxShadow2: 0px 0px 20px 5px rgba(0, 0, 0, 0.18);
+    --main-HoverColor: #0984e3;
+    --main-Active-TectColor: #f5803e;
+}
+
+
+.headerSection{
+    /* border: 1px solid red; */
+    position: relative;
+    height: 65px;
+    /* border: 1px solid red; */
+}
+
+.HeaderFixedBox{
+    /* border: 1px solid red; */
+    position: fixed;
+    width: 100%;
+    background-color: var(--main-background-color);
+    box-shadow: var(--main-boxShadow);
+    z-index: 111;
+}
+
+.topHeader{
+    /* position: fixed; */
+    padding: 0px;
+    /* border: 1px solid red; */
+    width: 100%;
+    background-color: var(--main-background-color);
+    
+}
+
+
+.headerItems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+.headerLogoAndImg{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0px;
+    /* border: 1px solid red; */
+   
+}
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    padding: 12px 0px;
+    align-items: center;
+    /* border: 1px solid red; */
+ 
+}
+
+.SearchBar{
+    padding:  4px 12px;
+    border:none;
+    border-bottom: 1px solid lightgray;
+    background-color:white;
+    
+}
+.SearchBar:focus{
+    outline: none;
+}
+.searchBarBtn{
+    background-color: white;
+    /* border: 1px solid lightgray; */
+    padding: 8px ;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: var(--main-boxShadow);
+}
+
+.headerUserProfileDetials{
+    margin-left: auto;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.cartIcone,.notifiationIcone{
+    /* border: 1px solid red; */
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+}
+.notifiationIcone a{
+    color: var(--main-color);
+}
+.cartIcone a{
+    color: var(--main-color);
+}
+.notificationStatus{
+    border: 1px solid red;
+    font-size: 10px;;
+    font-weight: 700;
+    background-color: red;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50px;
+    padding: 2px;
+    width: 10px;
+    height: 10px;
+}
+
+.headerUserProfileImg{
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.headerUserProfileImg img{
+    width: 100%;
+}
+
+.profileDteialsDropDown{
+    background-color: white;
+    position: absolute;
+    top: 120%;
+    right: 0px;
+    border-radius: 5px;
+    box-shadow: var(--main-boxShadow);
+    display: none;
+   
+}
+.profileDteialsDropDown ul{
+    margin: 0px;
+    padding: 0px;
+    padding: 12px;
+}
+.profileDteialsDropDown ul li{
+    list-style-type: none;
+    padding: 6px 0px;
+    /* border: 1px solid red; */
+}
+.profileDteialsDropDown ul li a{
+    color: black;
+    text-decoration: none;
+    padding: 6px 0px;
+    /* border: 1px solid red; */
+    display: block;
+    border-bottom: 1px solid white;
+
+
+}
+.profileDteialsDropDown ul li a:hover{
+    text-decoration: none;
+    border-bottom: 1px solid var(--main-background-color);
+}
+
+
+
+
+
+/* main section start from herer */
+
+
+.mainSection{
+    margin: 0px 50px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin-right: auto;
+}
+
+.sideBar{
+    /* border: 1px solid red; */
+    width: 20%;
+    height: 85vh;
+    overflow: auto;
+    position: fixed;
+}
+
+
+
+/* width */
+.sideBar::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.sideBar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.sideBar::-webkit-scrollbar-thumb {
+    background: #b1c0d1;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  .sideBar::-webkit-scrollbar-thumb:hover {
+    background: #b1c0d1;
+  }
+
+
+.mainContentBar{
+    position: relative;
+    /* border: 1px solid red; */
+    width: 75%;
+    margin-left: auto;
+    transition: 0.5s;
+}
+
+
+.headerLogoAndImg{
+    display: none;
+}
+.menuBtn i{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.dropDownMenu{
+    /* padding: 12px; */
+    padding: 12px 0px;
+    /* border: 1px solid lightgray; */
+    cursor: pointer;
+    font-weight: 600;
+    color: #5e6e82;
+    position: relative;
+    font-size: 15px;
+    /* border: 1px solid red; */
+}
+.dropDownMenu i{
+    margin-right: 5px;
+}
+.dropDownMenu > a{
+    color: var(--main-color);
+    text-decoration: none;
+}
+.dropDownMenu > a:hover{
+    text-decoration: none;
+}
+.dropDownIcone{
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    transform: translate(-50%,-50%);
+    transform: rotate(90deg);
+    /* border: 1px solid red; */
+    animation-name: rotateBack;
+    animation-duration: 0.5s;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+@keyframes rotateBack {
+    0%{
+        transform: rotate(-90deg);
+    }100%{
+        transform: rotate(90deg);
+    }
+}
+.rotate{
+    transform: rotate(-90deg);
+    animation-name: rotate;
+    animation-duration: 0.5s;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(90deg);
+    }100%{
+        transform: rotate(-90deg);
+    }
+}
+
+
+
+.sideBarMenuDropDownList{
+    display: none;
+    margin: 0px;
+    overflow: hidden;
+    /* border: 1px solid red; */
+    
+}
+
+.sideBarMenuDropDownList li{
+    list-style-type: none;
+    /* border: 1px solid red; */
+}
+.sideBarMenuDropDownList li a{
+    text-decoration: none;
+    color: var(--main-color);
+    /* border: 1px solid red; */
+    display: block;
+    padding: 4px 0px 4px 20px;
+    font-weight: 400;
+}
+
+
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+
+
+
+
+
+.projetStatusTablet{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.projetStatusTablet:first-child{
+    margin-top: 0px;
+}
+.tablet{
+    width: 48%;
+    background-color: white;
+    box-shadow: var(--main-boxShadow);
+    border-radius: 5px;
+    padding: 12px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+}
+.totalSalesTablet{
+    width: 48%;
+    background-color: white;
+    box-shadow: var(--main-boxShadow);
+    border-radius: 5px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.totalSalesTabletHeader{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.selectOptions{
+    border: none;
+}
+.selectOptions:focus{
+    outline: none;
+}
+
+
+.salesTabletContent{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+   
+}
+
+.salesTabletTitle{
+    color: black;
+}
+.salesTabletSales{
+    font-size: 30px;
+}
+.salesTabletPercentage{
+    margin-top: auto;
+}
+.salesTabletPercentage span{
+    font-size: 10px;
+    color: white;
+    background-color: rgba(39, 174, 96,0.7);
+    padding: 3px 8px;
+    border-radius: 50px;
+    font-weight: bold;
+    
+}
+
+.tabletGraphBox{
+    width: 50%;
+    /* border: 1px solid red; */
+}
+.weatherStatus{
+    text-align: center;
+}
+
+.WeatherSunSymbol {
+    font-size: 50px;
+    color: #fbc531;
+}
+
+
+.activeUsersList{
+    display: flex;
+    flex-direction: column;
+}
+.activeUser{
+    display: flex;
+    margin: 8px 0px;
+    cursor: pointer;
+}
+.activeUser:first-child{
+    margin: 0px;
+}
+.activeUserPicture{
+    width: 50px;
+    height: 50px;
+    /* overflow: hidden; */
+    border-radius: 50px;
+    position: relative;
+}
+.activeUserPicture img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}
+.activeStatus{
+    width: 15px;
+    height: 15px;
+    background-color: #2ecc71;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    border-radius: 50px;
+}
+.activeUserName{
+    margin-left: 15px;
+}
+.activeUserName h6{
+    margin: 0px;
+    color: black;
+    font-family: var(--main-fonts)
+}
+.activeUserName span{
+    color: gray;
+    font-size: 13px;
+}
+
+
+
+
+.topProductsBox{
+    width: 100%;
+}
+
+
+
+
+
+/* notification page desing */
+.notificationOuterBox{
+    background-color: white;
+    font-family: var(--main-fonts);
+    border-radius: 10px;
+    box-shadow: var(--main-boxShadow);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.notificationBoxHeader{
+    display: flex;
+    align-items: center;
+    /* background-color: var(--main-SecondBackgroundColor); */
+    /* border-radius: 10px; */
+    /* border: 1px solid red; */
+}
+.headerTitle{
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: bold;
+    
+}
+
+.notificationSetting{
+    margin-left: auto;
+}
+.notificationSetting span{
+    
+    padding-right: 10px;
+}
+.notificationSetting span a{
+    text-decoration: none;
+}
+.notificationSetting span:last-child{
+    padding-right: 0px;
+}
+.notificationContentBox{
+    /* border: 1px solid red; */
+    padding: 12px;
+}
+.notificationContentBox ul{
+    margin: 0px;
+    padding: 0px;
+}
+.notification{
+    list-style-type: none;
+    display: flex;
+    padding: 12px;
+    border-bottom: 1px solid lightgray;
+}
+.notifcationUserImg{
+    width: 5%;
+    /* border: 1px solid red; */
+    
+}
+.notifcationUserImg img{
+    width: 100%;
+    border-radius: 50px;
+}
+.notificationDetials{
+    padding-left:10px;
+    /* border: 1px solid red; */
+    width: 95%;
+}
+.notificationDetials p{
+    font-size: 13px;
+    margin: 0px;
+}
+.notifcationTime{
+    color: gray;
+    font-size: 13px;
+}
+
+.notificationActive{
+    background-color: var(--main-background-color)
+}
+
+
+
+
+
+
+/* footer setting */
+footer{
+    display: flex;
+    justify-content: space-between;
+}
+footer p{
+    text-transform: capitalize;
+}
+
+
+
+
+/* forms */
+.formsBox{
+    background-color: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: var(--main-boxShadow);
+}
+form{
+    /* border: 1px solid red; */
+    font-family: var(--main-fonts);
+    color: var(--main-color);
+}
+.formTitleBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.formTitle{
+    font-family: var(--main-fonts);
+    font-weight: 500;
+}
+
+
+.formTopButtons button{
+    transition: 0.5s;
+    padding: 6px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: var(--main-HoverColor);
+    box-shadow: var(--main-boxShadow2);
+}
+
+
+.inputFields label{
+    margin-bottom: 0px;
+}
+.inputFields textarea{
+    resize: none;
+}
+.inputFields{
+    margin-top: 10px;
+}
+.inputFields:first-child{
+    margin-top: 0px;
+}
+.formSubmitButton{
+    margin-top: 10px;
+}
+.formSubmitButton input{
+    border: none;
+    color: white;
+    background-color: var(--main-HoverColor);
+    box-shadow: var(--main-boxShadow2);
+    border-radius: 5px;
+    padding: 2px 20px;
+    cursor: pointer;
+}
+.inputFields input::placeholder{
+    font-size: 13px;
+}
+.formSubmitButton a{
+    margin-right: 5px;
+    padding: 4px 20px;
+    background-color: white;
+    box-shadow: var(--main-boxShadow2);
+    border: 1px solid lightgray;
+    color: var(--main-color);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* listing page section */
+.contentSection{
+    background-color: white;
+    -webkit-box-shadow:var(--main-boxShadow);
+    color: var(--main-color);
+    font-family: var(--main-fonts);
+    border-radius: 5px;
+    padding: 12px;
+}
+.listingPageHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.productSortBox{
+    /* border: 1px solid red; */
+    /* width: 250px; */
+    display: flex;
+    align-items: center;
+}
+.productSortBox select{
+    width: 150px;
+    margin-left: auto;
+}
+.gridOrList{
+    margin-left: auto;
+    cursor: pointer;
+}
+
+
+.productsList{
+    display: flex;
+    flex-direction: column;
+}
+
+.productsBox{
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.productImg{
+    /* border: 1px solid red; */
+    width: 25%;
+}
+.productImg img{
+    width: 100%;
+    border-radius: 5px;
+}
+.prodcutDetials{
+    width: 50%;
+    /* border: 1px solid red; */
+}
+.prodcutDetials h3 a{
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+}
+.prodcutDetials span{
+    color: gray;
+}
+.prodcutDetials p{
+    margin-top: 10px;
+}
+.productPriceDetials{
+    /* border: 1px solid red; */
+    width: 20%;
+}
+
+.productPrice .oldPrice{
+    text-decoration: line-through
+}
+.productRating i{
+    color: orange;
+}
+
+.prodcutAddToCartBtns button{
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 4px 0px;
+    margin-top: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    
+}
+.prodcutAddToCartBtns button:hover{
+    background-color: var(--main-HoverColor);
+    color: white;
+}
+.addToFavoutieBtn{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    -webkit-box-shadow: var(--main-boxShadow);
+    color: var(--main-color);
+    background-color: white;
+}
+
+.addToCartBtn{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    -webkit-box-shadow: var(--main-boxShadow);
+
+}
+.btnActive{
+    color: white;
+    background-color: var(--main-HoverColor);
+    
+}
+
+
+.productPrice .newPrice{
+    color: var(--main-Active-TectColor);
+    font-weight: 600;
+    font-size: 25px;
+}
+.productPrice .oldPrice{
+   color: gray;
+}
+.productShippingDetials{
+    display: flex;
+    flex-direction: column;
+}
+.productShippingDetials span{
+    font-size: 14px;
+}
+
+
+
+.paginationBox{
+    padding: 20px 0px;
+    /* border: 1px solid red; */
+}
+.pagination{
+    /* width: 50%; */
+    /* border: 1px solid red; */
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+}
+.pagination button{
+    width: 30px;
+    padding: 4px 0px;
+    border: 1px solid lightgray;
+    background-color: white;
+    color: var(--main-color);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0px 6px;
+    transition: 0.5s;
+}
+.pagination button:focus{
+    outline: none;
+}
+.pagination button:first-child{
+    margin: 0px 0px;
+}
+.paginationPrevBtn i{
+    transform: rotate(180deg);
+}
+.pagination button:hover{
+    background-color: var(--main-HoverColor);
+    color: white;
+}
+.paginationbtnActive{
+    background-color: var(--main-HoverColor) !important;
+    color: white !important;
+}
+
+
+/* product details page section */
+
+
+
+
+
+/* customer page desing */
+.addNewCustomerBtn{
+    margin-left: auto;
+    cursor: pointer;
+    border: 1px solid red;
+    padding: 4px 12px;
+    text-decoration: none;
+    margin: 0px 6px;
+    background-color: white;
+    border: 1px solid lightgray;
+    color: var(--main-color);
+    box-shadow: var(--main-boxShadow);
+    font-size: 13px;
+}
+.addNewCustomerBtn:hover{
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+
+.MainBoxHeaderButtons{
+    /* border: 1px solid red; */
+    margin-left: auto;
+}
+.MainBoxHeaderButtons input{
+    padding: 0px 4px;
+    border: 1px solid lightgray;
+    font-size: 13px;
+}
+.MainBoxHeaderButtons input:focus{
+    outline: none;
+}
+.MainBoxHeaderButtons button{
+    padding: 4px 12px;
+    background-color: white;
+    border: 1px solid lightgray;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--main-color);
+    box-shadow: var(--main-boxShadow);    
+    font-weight: 500;
+    border-radius: 5px;
+}
+.MainBoxHeaderButtons button:focus{
+    outline: none;
+}
+.customerTable{
+    /* border: 1px solid red; */
+    width: 100%;
+    /* margin: auto; */
+}
+.customerTable th{
+    font-weight: 600;
+    font-size: 13px;
+    text-align: left;
+    background-color: var(--main-background-color);
+   padding: 6px 12px;
+
+}
+.customerTable td{
+   padding: 6px 12px;
+   font-size: 13px;
+   font-weight: normal;
+   /* border-bottom: 1px solid lightgray; */
+}
+.customerTable tbody{
+    padding: 50px;
+}
+
+.crudBtn{
+    text-align: center;
+}
+.crudBtn a{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    color: var(--main-color);
+    text-decoration: none;
+    /* border: 1px solid red; */
+}
+
+
+
+
+/* invoice page */
+.invoiceHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invoiceTitle{
+    color:  black;
+    text-align: right;
+}
+.invoiceNumberBox {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 13px;
+}
+.invoiceNumberBox span:last-child{
+    color: rgb(49, 49, 49);;
+}
+
+.invoiceDate{
+   /* border: 1px solid red; */
+   color: black;
+   margin-top: 20px;
+   font-weight: 400;
+   color : rgb(49, 49, 49);
+   text-align: center;
+   width: 30%;
+}
+
+.invoiceDate h6{
+    font-size: 15px;
+    color: var(--main-color);
+    /* font-size: 20px; */
+    visibility: hidden;
+    text-align: left;
+}
+.invoiceDeteDetials{
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+}
+.invoiceDateTitle{
+    color: black;
+    font-weight: 500;
+    
+}
+
+.invoiceAmmount{
+     /* border: 1px solid red; */
+     background-color: rgba(46, 204, 113,0.5);
+     color: black;
+     font-weight: 500;
+}
+
+.billToBox{
+    margin-top: 20px;
+    /* border: 1px solid red; */
+}
+.billToBox h3{
+    font-size: 15px;
+    color: var(--main-color);
+    /* font-size: 20px; */
+}
+
+
+.billToBox p{
+    color: black;
+    font-size: 13px;
+    margin: 0px;
+    /* border: 1px solid red; */
+    font-weight: 500;
+}
+.billToBox p span{
+    color: rgb(49, 49, 49);
+    
+    font-weight: 400;
+}
+.billToName{
+    color: black;
+    font-size: bold;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.mainInvoiceContentSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.amountDue{
+    border: 1px solid red;
+    background-color: #2ecc71;
+    color: green;
+}
+
+
+
+
+
+.amountInWord{
+    display: flex;
+
+}
+.amountInWordBox1{
+    width: 20%;
+    color: black;
+    font-weight: 500;
+    /* border: 1px solid red; */
+    font-size: 15px;
+}
+.amountInWordBox2{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid var(--main-color);
+    color: black;
+    font-size: 13px;
+    /* border: 1px solid red; */
+
+}
+
+
+.invoiceTable{
+    width: 100%;
+}
+.tableOuterBox {
+    /* border: 1px solid red; */
+    overflow-x: auto;
+    
+}
+.invoiceTable thead{
+    background-color: var(--main-HoverColor);
+    color: white;
+
+}
+.invoiceTable thead tr th{
+    font-weight: normal;
+    text-align: center;
+    padding: 4px;
+    font-size: 14px;
+}
+.invoiceTable tbody tr td{
+    font-size: 13px;
+    text-align: left;
+    padding: 4px;
+    border-bottom: 1px solid lightgray;
+}
+.serialNumberBox{
+    /* border: 1px solid red; */
+    width: 30px;
+}
+
+.invoiceSummaryBox{
+    /* border: 1px solid rgb(31, 30, 30); */
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.paymentInfo h3{
+    font-size: 13px;
+    color: black;
+    margin: 0px;
+    
+}
+.paymentInfo div {
+    border-bottom: 1px solid lightgray;
+}
+.invoiceSummary h3{
+    font-size: 13px;
+    color: black;
+    
+    margin: 0px;
+}
+.invoiceSummary div{
+    border-bottom: 1px solid lightgray;
+}
+
+
+/* generate invoice form */
+.generateInvoiceForm{
+    margin: 20px 0px;
+}
+.generateInvoiceForm label{
+    margin-bottom: 0px;
+}
+
+
+
+
+.generateTableHead{
+    background-color: var(--main-HoverColor);
+    color: white;  
+}
+
+
+.tableDiv{
+    /* border: 1px solid red; */
+    display: flex;
+    height: 300px;
+    border: 1px solid lightgray;
+}
+.generateTableHead{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 100px;
+}
+.generateTableHead h6{
+    margin: 0px;
+    font-size: 15px;
+    text-align: center;
+}
+.generateTableBody{
+    /* border: 1px solid red; */
+    flex-grow: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.generateTableBody tr{
+    text-align: center;
+    position: relative;
+}
+.deleteInvoiceItemBtn{
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.deleteInvoiceItemBtn i{
+    cursor: pointer;
+    display: none;
+    transition: 0.5s;
+}
+.generateTableBody tr:hover .deleteInvoiceItemBtn i{
+    display: block;
+}
+.deleteInvoiceItemBtn i:hover{
+    color: var(--main-HoverColor);
+}
+
+
+
+
+.generateInviceBtn{
+    background-color: var(--main-HoverColor);
+    color: white;
+    padding: 6px 20px;
+    box-shadow: var(--main-boxShadow2);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+
+}
+.generateInviceBtn:focus{
+    outline: none;
+}
+
+.addRowBtn button{
+    display: block;
+    margin-left: auto;
+    border: none;
+    color: white;
+    background-color: var(--main-HoverColor);
+    padding: 4px 20px;
+    cursor: pointer;
+    border-radius: 5px; 
+    -webkit-box-shadow : var(--main-boxShadow2);
+   
+}
+.addRowBtn button:focus{
+    outline: none;
+}
+
+.InputTypeNumber::-webkit-outer-spin-button,
+.InputTypeNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.InputTypeNumber:focus{
+    outline: none;
+}
+
+.selectCustomerDropDown{
+    margin-left: auto;
+}
+
+.customerTableBox{
+    min-height: 50px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.currentUserName{
+    /* border: 1px solid red; */
+    margin-left: auto;
+
+}
+
+
+.errPage{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* border: 1px solid red; */
+    width: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.errPage a{
+    background-color: dodgerblue;
+    padding: 6px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+
+.invoiceDeteDetialsItem span:last-child{
+    color: rgb(49, 49, 49);;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE DESING */
+
+@media only screen and (max-width:995px){
+    .customerTableBox{
+        overflow: hidden;
+        /* border: 1px solid red; */
+        overflow-x: scroll;
+    }
+}
+
+
+/* RESPONSIVE SETTING */
+@media only screen and (max-width:900px){
+    .headerLogoAndImg{
+        display: block;
+        cursor: pointer;
+    }
+
+    .sideBar{
+        position: absolute;
+        width: 100%;
+        position: fixed;
+        top: 55px;
+        left: 0px;
+        z-index: 11;
+        background-color: var(--main-background-color);
+        /* border: 1px solid red; */
+        display: none;
+        height: 85vh;
+        box-shadow: var(--main-boxShadow);
+    }
+  
+    .mainContentBar{
+        width: 100%;
+    }
+    .SearchBox{
+        margin-left: auto;
+    }
+
+
+}
+
+
+@media only screen and (max-width:650px){
+    .SearchBox{
+        display: none;
+    }
+
+}
+
+
+@media only screen and (max-width:600px){
+
+    .projetStatusTablet{
+        flex-direction: column;
+    }
+    .tablet{
+        margin: 8px 0px;
+        width: 100%;
+    }
+    .totalSalesTablet{
+        width: 100%;
+        margin: 8px 0px;
+    }
+
+
+
+
+    /* listing page responsive */
+    /* Bux */
+    .productsBox{
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    .productImg, .prodcutDetials, .productPrice{
+        width: 100%;
+    }
+    .productPriceDetials{
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .generateInvoiceSecondTable{
+        border: 1px solid lightgray;
+        width: 100%;
+        overflow: scroll;
+    }
+    .generateInvoiceSecondTable table{
+        width: 500px;
+        padding: 6px;
+    }
+
+}
+
+
+@media only screen and (max-width:550px){
+    .invoiceLogo img{
+        width: 100%;
+    }
+}
+
+
+@media only screen and (max-width:500px){
+    .headerItems{
+        padding: 4px 12px;
+    }
+    
+
+    .listingPageHeader{
+        flex-direction: column;
+    }
+    .showingProductCount{
+        /* border: 1px solid red; */
+        width: 100%;
+        text-align: center;
+    }
+    .productSortBox{
+        width: auto;
+        /* border: 1px solid red; */
+        justify-content: center;
+    }
+
+    .notificationBoxHeader{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .notificationSetting{
+        margin: auto;
+    }
+    .selectCustomerDropDown{
+        margin: auto;
+    }
+
+
+    .mainInvoiceContentSection{
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .invoiceHeader{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .invoiceTitle{
+        width: 100%;
+        text-align: left;
+    }
+    .invoiceDate{
+        width: 50%;
+        text-align: left;
+        margin-top: 0px;
+    }
+    .invoiceAmmount{
+        background-color: white;
+        color: black;
+    }
+    .amountInWord{
+        flex-direction: column;
+        text-align: left;
+    }
+    .amountInWordBox1{
+        width: 100%;
+    }
+    .amountInWordBox2{
+        width: 100%;
+    }
+    .invoiceTable{
+        width: 100%;
+    }
+    .tableOuterBox{
+        overflow-x: scroll;
+        /* border: 1px solid red; */
+    }
+
+    .invoiceSummaryBox {
+        flex-direction: column;
+    }
+    .paymentInfo{
+        width: 100%;
+        text-align: left;
+    }
+    .invoiceSummary{
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+}
+@media only screen and (max-width:400px){
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content:  center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .notificationSetting{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+  .invoiceTable{
+      width: 700px;
+  }
+  
+}
+
+
+@media only screen and (max-width:350px){
+
+
+    .invoiceHeader{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .invoiceTitle{
+        margin-top: 20px;
+        
+    }
+    .invoiceTitle h3{
+        text-align: left;
+    }
+    .MainBoxHeaderButtons{
+        margin: auto;
+    }
+    
+}
+

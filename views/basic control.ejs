@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volk & David Management Systems</title>
+
+
+    <!-- font awesome files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- header section -->
+     <%- include("partials/header.ejs") %>
+
+    <!-- main content section start -->
+    <section class="mainSection container" style=" padding: 0px; margin: auto;">
+
+        <!-- left side-bar -->
+        <%- include("partials/sideBar.ejs") %>
+
+
+
+        <!-- main container -->
+        <div class="mainContentBar mt-2">
+
+            <div class="formsBox">
+
+                <form>
+
+                    <div class="formTitleBox">
+                        <span class="formTitle">
+                            Example
+                        </span>
+                        <div class="formTopButtons">
+                         
+                                <button>
+                                    Add
+                                </button>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    <div class="inputFields">
+                        <label>Email address</label>
+                        <input  class="form-control" type="email" placeholder="nomi@gmail.com">
+                    </div>
+                    <div class="inputFields">
+                        <label>Example textarea</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+
+                    <div class="formSubmitButton">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+
+            </div>
+
+
+
+            <footer class="mt-5">
+
+                <div>
+                    <p>
+                        copyright 2021
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Made by wide range digital services
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+
+    </section>
+
+</body>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Owl Carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+
+<!-- Slick slider JS -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="./assets/js/index.js"></script>
+
+</html>

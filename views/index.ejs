@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volk & David Management System</title>
+
+
+    <!-- font awesome files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- header section -->
+    <%- include("partials/header.ejs") %>
+
+    <!-- main content section start -->
+    <section class="mainSection container" style=" padding: 0px; margin: auto;">
+
+        <%- include("partials/sideBar.ejs") %>
+        
+
+
+        <!-- main container -->
+        <div class="mainContentBar mt-2">
+
+
+
+
+            <!-- tabletst -->
+            <div class="projetStatusTablet">
+                <div class="tablet salesTablet">
+
+                    <div class="salesTabletContent">
+                        <span class="salesTabletTitle">
+                            Weekly Sales
+                        </span>
+                        <span class="salesTabletSales">
+                            $47K
+                        </span>
+                        <span class="salesTabletPercentage">
+                            <span>+5.2%</span>
+                        </span>
+                    </div>
+                    <div class="tabletGraphBox">
+
+                        <div style="width: 100%;" class="infogram-embed" data-id="a6721775-7b96-4e33-92c0-b4b936ddbbb7"
+                            data-type="interactive" data-title="Column Chart"></div>
+                        <script>!function (e, i, n, s) { var t = "InfogramEmbeds", d = e.getElementsByTagName("script")[0]; if (window[t] && window[t].initialized) window[t].process && window[t].process(); else if (!e.getElementById(n)) { var o = e.createElement("script"); o.async = 1, o.id = n, o.src = "https://e.infogram.com/js/dist/embed-loader-min.js", d.parentNode.insertBefore(o, d) } }(document, 0, "infogram-async");</script>
+
+                    </div>
+                </div>
+                <div class="tablet orderTablet">
+                    <div class="salesTabletContent">
+                        <span class="salesTabletTitle">
+                            Total Order
+                        </span>
+                        <span class="salesTabletSales">
+                            58.4K
+                        </span>
+                        <span class="salesTabletPercentage">
+                            <span>+10.2%</span>
+                        </span>
+                    </div>
+                    <div class="tabletGraphBox">
+
+                        <div style="width: 100%;" class="infogram-embed" data-id="a6721775-7b96-4e33-92c0-b4b936ddbbb7"
+                            data-type="interactive" data-title="Column Chart"></div>
+                        <script>!function (e, i, n, s) { var t = "InfogramEmbeds", d = e.getElementsByTagName("script")[0]; if (window[t] && window[t].initialized) window[t].process && window[t].process(); else if (!e.getElementById(n)) { var o = e.createElement("script"); o.async = 1, o.id = n, o.src = "https://e.infogram.com/js/dist/embed-loader-min.js", d.parentNode.insertBefore(o, d) } }(document, 0, "infogram-async");</script>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="projetStatusTablet">
+                <div class="tablet salesTablet">
+
+                    <div class="salesTabletContent">
+                        <span class="salesTabletTitle">
+                            Market Place
+                        </span>
+                        <span class="salesTabletSales">
+                            <ul>
+
+                            </ul>
+                        </span>
+
+                    </div>
+                    <div class="tabletGraphBox">
+
+                    </div>
+                </div>
+                <div class="tablet orderTablet">
+                    <div class="salesTabletContent">
+                        <span class="salesTabletTitle">
+                            Weathers
+                        </span>
+                        <span class="salesTabletSales">
+                            31&#8451;
+                        </span>
+                        <span class="salesTabletPercentage">
+                            <span>+10.2%</span>
+                        </span>
+                    </div>
+                    <div class="tabletGraphBox weatherStatus">
+                        <i class="fas fa-sun WeatherSunSymbol"></i><br>
+                        <span style="color:#fbc531;">
+                            Sunny
+                        </span><br>
+                        <span>
+                            New York City
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- what projest are running -->
+            <div class="projetStatusTablet">
+                <div class="totalSalesTablet">
+                    <div class="totalSalesTabletHeader">
+                        <span style="font-weight: bold;">Total Sales</span>
+
+                        <select class="selectOptions">
+                            <option>
+                                January
+                            </option>
+                            <option>
+                                February
+                            </option>
+                            <option>
+                                Mark
+                            </option>
+                            <option>
+                                April
+                            </option>
+                            <option>
+                                May
+                            </option>
+                            <option>
+                                June
+                            </option>
+                            <option>
+                                July
+                            </option>
+                            <option>
+                                August
+                            </option>
+                            <option>
+                                September
+                            </option>
+                            <option>
+                                Octomber
+                            </option>
+                            <option>
+                                November
+                            </option>
+                            <option>
+                                Descember
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="totalSalesTabletContent">
+                        <div class="infogram-embed" data-id="a6721775-7b96-4e33-92c0-b4b936ddbbb7"
+                            data-type="interactive" data-title="Column Chart"></div>
+                        <script>!function (e, i, n, s) { var t = "InfogramEmbeds", d = e.getElementsByTagName("script")[0]; if (window[t] && window[t].initialized) window[t].process && window[t].process(); else if (!e.getElementById(n)) { var o = e.createElement("script"); o.async = 1, o.id = n, o.src = "https://e.infogram.com/js/dist/embed-loader-min.js", d.parentNode.insertBefore(o, d) } }(document, 0, "infogram-async");</script>
+                    </div>
+
+                </div>
+
+
+
+                <div class="totalSalesTablet">
+                    <div class="totalSalesTabletHeader">
+                        <span style="font-weight: bold;">Active Users</span>
+                        <span>
+                            <i class="fas fa-ellipsis-h" style="cursor: pointer;"></i>
+                        </span>
+
+                    </div>
+                    <hr>
+                    <div class="activeUsersList">
+
+                        <div class="activeUser">
+                            <div class="activeUserPicture">
+                                <img src="https://prium.github.io/falcon/v3.3.0/assets/img/team/3-thumb.png">
+                                <span class="activeStatus"></span>
+                            </div>
+                            <div class="activeUserName">
+                                <h6>Alina</h6>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+                        <div class="activeUser">
+                            <div class="activeUserPicture">
+                                <img src="https://prium.github.io/falcon/v3.3.0/assets/img/team/3-thumb.png">
+                                <span class="activeStatus"></span>
+
+                            </div>
+                            <div class="activeUserName">
+                                <h6>Judy</h6>
+                                <span>Admin</span>
+                            </div>
+
+
+                        </div>
+                        <div class="activeUser">
+                            <div class="activeUserPicture">
+                                <img src="https://prium.github.io/falcon/v3.3.0/assets/img/team/3-thumb.png">
+                                <span class="activeStatus"></span>
+
+                            </div>
+                            <div class="activeUserName">
+                                <h6>Rose</h6>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+                        <div class="activeUser">
+                            <div class="activeUserPicture">
+                                <img src="https://prium.github.io/falcon/v3.3.0/assets/img/team/3-thumb.png">
+                                <span class="activeStatus"></span>
+
+                            </div>
+                            <div class="activeUserName">
+                                <h6>Zebua</h6>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="projetStatusTablet">
+                <div class="totalSalesTablet topProductsBox">
+                    <div class="totalSalesTabletHeader">
+                        <span style="font-weight: bold;">Total Sales</span>
+                        <i class="fas fa-ellipsis-h" style="cursor: pointer;"></i>
+                    </div>
+
+                    <div class="totalSalesTabletContent">
+                        <div class="infogram-embed" data-id="a6721775-7b96-4e33-92c0-b4b936ddbbb7"
+                            data-type="interactive" data-title="Column Chart"></div>
+                        <script>!function (e, i, n, s) { var t = "InfogramEmbeds", d = e.getElementsByTagName("script")[0]; if (window[t] && window[t].initialized) window[t].process && window[t].process(); else if (!e.getElementById(n)) { var o = e.createElement("script"); o.async = 1, o.id = n, o.src = "https://e.infogram.com/js/dist/embed-loader-min.js", d.parentNode.insertBefore(o, d) } }(document, 0, "infogram-async");</script>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <footer class="mt-5">
+
+                <div>
+                    <p>
+                        copyright 2021
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Made by wide range digital services
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+
+    </section>
+
+</body>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Owl Carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+
+<!-- Slick slider JS -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="./assets/js/index.js"></script>
+
+</html>

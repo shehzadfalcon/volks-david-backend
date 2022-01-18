@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volk & David Management Systems</title>
+    
+
+    <!-- font awesome files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+
+</head>
+
+<body id="body">
+
+
+    <!-- singup form -->
+    <section>
+        <div class="formBox">
+            <h1>Login</h1>
+            <form method="post" action="/login" class="form">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12 col-md-12">
+                        <label>Email</label>
+                        <input type="text" name="email" placeholder="email" required>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-12 col-md-12">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="password" required>
+                    </div>
+
+                </div>
+                
+                <%if(errMsg){%>
+                    <span style="display: block; margin: auto;font-size: 13px ;color: red;">
+                        <%=errMsg%>
+                    </span>
+                    <%}%>
+                    <div class="submitFormBtn">
+                        <input type="submit" value="LOGIN" >
+                    </div>
+                    
+                    <!-- <p class="mt-2">if you do not have any account then please <a href="/signup" >Register</a> first</p>  -->
+                
+            </form>
+        </div>
+        
+    </section>
+</body>
+
+</html>

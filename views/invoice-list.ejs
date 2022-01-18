@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volk & David Management Systems</title>
+
+
+    <!-- font awesome files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/register.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- header section -->
+    <%- include("partials/header.ejs") %>
+
+        <!-- main content section start -->
+        <section class="mainSection container" style=" padding: 0px; margin: auto;">
+
+            <!-- left side-Bar -->
+            <%- include("partials/sideBar.ejs") %>
+
+
+
+                <!-- main container -->
+                <div class="mainContentBar mt-2">
+
+                    <div class="notificationOuterBox">
+
+                        <div class="notificationBoxHeader">
+                            <span class="headerTitle">
+                                Invoice list
+                            </span>
+
+
+                            <div class="MainBoxHeaderButtons">
+                                <!-- <a class="addNewCustomerBtn" id="InvoiceFromCustomersBtn">
+                                    Customers
+                                </a> -->
+                                <!-- <input type="search" class="searchByEmail" placeholder="filter by email"> -->
+                                <a href="/generate-invoice" class="addNewCustomerBtn">
+                                    New Invoice
+                                </a>
+                                <a href="/invoice-list" class="addNewCustomerBtn">
+                                    Refresh <i class="fas fa-redo"></i>
+                                </a>
+                            </div>
+                            <div class="SearchBox">
+                                <input class="SearchBar invoiceSearchBar" type="text" placeholder="Search">
+                                <i class="fas fa-search searchBarBtn invoiceSearchBtn"></i>
+                            </div>
+                        </div>
+
+
+                        <hr>
+
+                        <div class="customerTableBox">
+                            <table class="customerTable .table-responsive">
+                                <thead>
+
+                                    <tr>
+                                        <th>
+
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Phone
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="tableBody">
+                                    <%for(var x=0; x < invoiceData.length; x++){%>
+                                        <tr>
+                                            <td>
+                                                <%=[x+1]%>.
+                                            </td>
+                                            <td>
+                                                <a href="/invoice/<%=links[x]%>/<%=invoiceData[x].id%>">
+                                                    <%=invoiceData[x].Name%>
+                                                </a>
+                                            </td>
+                                            <td>
+
+                                                <%=invoiceData[x].Address%>
+
+                                            </td>
+                                            <td>
+
+                                                <%=invoiceData[x].Email%>
+
+                                            </td>
+                                            <td>
+
+                                                <%=invoiceData[x].Phone%>
+
+                                            </td>
+
+                                        </tr>
+                                        <%}%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <footer class="mt-5">
+
+                        <div>
+                            <p>
+                                copyright 2021
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Made by wide range digital services
+                            </p>
+                        </div>
+                    </footer>
+                </div>
+
+
+        </section>
+
+
+
+
+        <!-- model -->
+
+</body>
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Owl Carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+
+<!-- Slick slider JS -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="./assets/js/index.js"></script>
+
+
+<!-- -->
+<script>
+
+    // search invoices; Bux
+    $(document).ready(function () {
+        $('.invoiceSearchBtn').click(function () {
+
+            
+            var searchValue = $('.invoiceSearchBar').val();
+            searchValue = searchValue.toUpperCase();
+            
+            var tableBody = document.getElementsByClassName('tableBody')[0];
+
+            $.ajax({
+                type: 'GET',
+                url: "/getInvoiceList",
+                success: function (data) {
+
+                    var invoiceData = data.invoiceData;
+                    var html = "";
+                    invoiceData.forEach(function (item, index) {
+
+                        
+                        var name = item.Name;
+                        var name = name.toUpperCase();
+
+
+                        if (name.includes(searchValue)) {
+
+                            html += `<tr>
+                                            <td>
+                                                ${index + 1}.
+                                            </td>
+                                            <td>
+                                                <a href="/invoice/${item.Name.replace(" ", "-").toLowerCase()}/${item._id}">
+                                                   ${item.Name}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                ${item.Address}
+                                            </td>
+                                            <td>
+                                                ${item.Email}
+                                            </td>
+                                            <td>
+                                                ${item.Phone}
+                                            </td>
+
+                                        </tr>`;
+
+                                        tableBody.innerHTML = html;
+                        }
+
+
+
+                    })
+
+                }
+            });
+
+        })
+
+    })
+
+</script>
+
+
+</html>
