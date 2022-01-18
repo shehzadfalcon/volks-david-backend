@@ -1,8 +1,8 @@
 require('../module/mongoose')
 var express = require('express');
 var router = express.Router();
-var customerModel = require('../module/create-customer');
-var userModel = require('../module/users')
+var User = require("../module/users")
+const STRINGS = require("../utils/texts")
 
 
 router.get("/:id", async function(req,res){
@@ -12,8 +12,10 @@ router.get("/:id", async function(req,res){
         
         if (cookieData) {
 
-            var currentUser = await userModel.findOne({_id : cookieData}) 
-            var currentSelectedITem = await userModel.findOne({_id : selectedItemID});
+            var currentUser = await User.findOne({ _id: cookieData })
+            var currentSelectedITem = await User.findOne({
+              _id: selectedItemID,
+            })
             res.render('edit-user',{currentUser : currentUser, currentSelectedITem : currentSelectedITem});
             
           } else {
@@ -25,36 +27,15 @@ router.get("/:id", async function(req,res){
     }
 })
 
-router.post("/", async function(req,res){
-    try {
-        var id = req.body.currentUserID
-        var firstname = req.body.name
-        var lastname = req.body.lname
-        var email  = req.body.email
-        var phone = req.body.phoneNumber
-        var password = req.body.password
-
-        var selectedUser = await userModel.findOne({_id : id})
-        
-        userModel.findOneAndUpdate({_id : id},{
-            userType: selectedUser.userType,
-            userID : selectedUser.userID,
-            firstname:firstname,
-            lastname : lastname,
-            email : email,
-            phone : phone,
-            password : password,
-            date : new Date().toLocaleDateString()
-        }).exec(function(err,data){
-            if (err) throw err;
-
-            res.redirect('users-list')
-        });
-
-        
-    } catch (error) {
-
-    }
+router.put("/:id", async function (req, res) {
+  try {
+    let body = req.body
+    let user = await User.findByIdAndUpdate(req.params.id, body,{new:true})
+    res.json({ message: STRINGS.TEXTS.profileUpdated,user })
+  } catch (error) {
+    console.log(error.message,  "Error--->")
+      res.status(500).json({ message: error.message })
+  }
 })
 
 

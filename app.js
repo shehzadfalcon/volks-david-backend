@@ -29,6 +29,8 @@ var notification = require('./routes/notification')
 var userPageRouter = require('./routes/create-user')
 var users = require('./routes/usersList')
 var editUser = require('./routes/edit-user')
+var forgotPassword = require("./routes/forgot-password")
+
 var deleteUser = require('./routes/delete-user')
 
 var app = express();
@@ -57,6 +59,8 @@ app.use('/invoice-list', invoiceList);
 app.use('/create-user', userPageRouter);
 app.use('/users-list', users)
 app.use('/edit-user', editUser)
+app.use("/forgot-password", forgotPassword)
+
 app.use('/delete-user', deleteUser)
 
 
