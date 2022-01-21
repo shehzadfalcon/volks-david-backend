@@ -29,11 +29,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    resetPasswordToken: String,
+    resetPasswordExpires: String,
   },
   {
     timestamps: true,
   }
-);
+)
 
 const userModel = new mongoose.model(STRINGS.MODALS.USER, userSchema);
 
