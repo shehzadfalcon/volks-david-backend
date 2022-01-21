@@ -3,6 +3,9 @@ var express = require("express")
 var router = express.Router()
 var User = require("../module/users")
 const STRINGS = require("../utils/texts")
+const crypto = require("crypto")
+const bcrypt = require("bcrypt")
+
 const MailService = require("../services/mail.service")
 // forgot password
 
@@ -14,9 +17,9 @@ const forgotPassword = async (req, res) => {
     if (!user)
       return res.status(404).send({ message: STRINGS.ERRORS.userNotFound })
     // check user is active
-    var resetPasswordToken = Math.floor(1000 + Math.random() * 9000)
-    const resetPasswordExpires = Date.now() + 900000
-
+    const buf = await crypto.randomBytes(20)
+    var resetPasswordToken = buf.toString("hex")
+    const resetPasswordExpires = Date.now() + "300000"
     user = await User.findOneAndUpdate(
       {
         _id: user._id,
@@ -71,5 +74,6 @@ const resetPassword = async (req, res) => {
 }
 
 router.post("/", forgotPassword)
+router.post("/reset", resetPassword)
 
 module.exports = router

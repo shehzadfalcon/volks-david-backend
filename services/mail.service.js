@@ -4,6 +4,7 @@ const fs = require("fs")
 const path = require("path")
 const STRINGS = require("../utils/texts")
 const ENV = process.env
+console.log(ENV.MAILER_PASSWORD, "ENV")
 class MailService {
   constructor() {
     this.transporter = nodemailer.createTransport({
