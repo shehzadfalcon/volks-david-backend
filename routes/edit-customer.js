@@ -3,6 +3,7 @@ var express = require("express")
 var router = express.Router()
 var customerModel = require("../module/create-customer")
 var userModel = require("../module/users")
+const STRINGS = require("../utils/texts")
 
 router.get("/:id", async function (req, res, next) {
   try {
@@ -31,33 +32,14 @@ router.get("/:id", async function (req, res, next) {
   }
 })
 
-router.post("/", async function (req, res, next) {
+router.put("/:id", async function (req, res) {
   try {
-    var userID = req.body.userId
-    var name = req.body.name
-    var email = req.body.email
-    var phone = req.body.phoneNumber
-    var Address = req.body.address
-
-    var getDate = new Date()
-    customerModel
-      .findOneAndUpdate(
-        { _id: userID },
-        {
-          name: name,
-          email: email,
-          phone: phone,
-          Address: Address,
-          join: getDate,
-        }
-      )
-      .exec(function (err, data) {
-        if (err) throw err
-
-        res.redirect("customers")
-      })
+    let body = req.body;
+    let user = await customerModel.findByIdAndUpdate(req.params.id, body,{new:true})
+    res.json({ message: STRINGS.TEXTS.customerUpdated,user })
   } catch (error) {
-    res.send(error)
+    console.log(error.message,  "Error--->")
+      res.status(500).json({ message: error.message })
   }
 })
 

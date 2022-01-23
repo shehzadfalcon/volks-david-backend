@@ -4,6 +4,8 @@ module.exports = {
     deviceNotFound: "Device Not Found",
 
     userExists: "User exists",
+    customerExists: "Customer exists",
+
     adNotFound: "Ad Not Found",
 
     emailRequired: "Email Required",
@@ -19,12 +21,16 @@ module.exports = {
   TEXTS: {
     allUsers: "All Users",
     userCreated: "User Created",
-    AdCreated: "Ad Created Successfully",
+    customerCreated: "Customer Created Successfully",
+    customerUpdated: "Customer Updated Successfully",
+
     AssetCreated: "Asset Created Successfully",
     MediaCreated: "Media Created Successfully",
 
     AdUpdated: "Ad Updated Successfully",
-    AdDeleted: "Ad Deleted Successfully",
+    userDeleted: "User Deleted Successfully",
+    customerDeleted: "Customer Deleted Successfully",
+
     tokenValidated: "Token Validated Successfully",
     userValidated: "User Validated Successfully",
     loginSuccess: "Login Successfully",

@@ -1,25 +1,18 @@
 require('../module/mongoose')
 var express = require('express');
 var router = express.Router();
-var customerModel = require('../module/create-customer');
-var userModel = require('../module/users');
+var User = require('../module/users');
+const STRINGS = require("../utils/texts");
 
-router.get('/:id', async function (req, res) {
+router.delete('/:id', async function (req, res) {
     try {
         var id = req.params.id;
+        await User.findOneAndDelete({ _id: id });
+        res.json({ message: STRINGS.TEXTS.userDeleted });
 
-        userModel.findOneAndDelete({_id : id}).exec(function(err,data){
-            if(err) throw err;
-            
-
-            res.redirect('invoice-list')
-        })
-        
     } catch (error) {
-
+        res.json({ message: error.message })
     }
-
-
 })
 
 

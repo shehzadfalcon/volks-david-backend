@@ -38,7 +38,8 @@ router.post("/", async function (req, res, next) {
     var hash = bcrypt.hashSync(data.password, salt);
     data.password = hash;
     user = await User.create(data);
-    res.json({ message: STRINGS.TEXTS.userCreated, user });
+   let users=await User.find().sort({createdAt:1})
+    res.json({ message: STRINGS.TEXTS.userCreated, users });
   } catch (error) {
     console.log("Error--->", error);
     res.status(500).json({ message: error.message });

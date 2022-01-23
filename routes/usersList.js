@@ -5,7 +5,8 @@ var User = require("../module/users");
 
 router.get("/", async function (req, res) {
   try {
-    let users = await User.find();
+    let users = await User.find().sort({createdAt:-1});
+  
     res.json({ users });
   } catch (error) {
     res.json({ message: error.message });

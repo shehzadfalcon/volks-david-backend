@@ -3,27 +3,24 @@ var mongoose = require('./mongoose');
 const customerSchema = new mongoose.Schema({
     name : {
         type : String,
-        required : true,
-        unique : false
+        required : false,
     },
 
     email : {
         type : String,
-        required : true,
-        unique : false
+        required : false,
     },
     phone : {
         type : Number,
-        required : true,
-        unique : false
+        required : false,
     },
-    Address : {
+    address : {
         type : String,
-        required : true
+        required : false
     },
     join : {
         type : String,
-        required : true
+        required : false
     }
 });
 
