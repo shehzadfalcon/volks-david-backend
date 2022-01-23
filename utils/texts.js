@@ -27,7 +27,7 @@ module.exports = {
     AssetCreated: "Asset Created Successfully",
     MediaCreated: "Media Created Successfully",
 
-    AdUpdated: "Ad Updated Successfully",
+    userUpdated: "User Updated Successfully",
     userDeleted: "User Deleted Successfully",
     customerDeleted: "Customer Deleted Successfully",
 
@@ -58,6 +58,6 @@ module.exports = {
     MEDIA: "Media",
     EFFECT: "Effect",
   },
-}
+};
 
 // ****************

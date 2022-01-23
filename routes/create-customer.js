@@ -27,9 +27,10 @@ router.post("/", async function (req, res, next) {
     if (user)
       return res.status(404).send({ message: STRINGS.ERRORS.customerExists });
     await Customer.create(data);
-    res.json({ message: STRINGS.TEXTS.customerCreated });
+    var customers = await Customer.find().sort({ createdAt: -1 });
+    console.log(customers, "customers");
+    res.json({ message: STRINGS.TEXTS.customerCreated, customers });
   } catch (error) {
-      
     res.json({ message: error.message });
   }
 });

@@ -39,9 +39,8 @@ router.put("/:id", async function (req, res) {
       body.password = user.password;
       user = await User.findByIdAndUpdate(req.params.id, body, { new: true });
     }
-    let users = await User.find().sort({ createdAt: -1 });
 
-    res.json({ message: STRINGS.TEXTS.userUpdated, users });
+    res.json({ message: STRINGS.TEXTS.profileUpdated, user });
   } catch (error) {
     console.log(error.message, "Error--->");
     res.status(500).json({ message: error.message });
