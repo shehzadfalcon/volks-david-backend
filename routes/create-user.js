@@ -1,53 +1,43 @@
-require("../module/mongoose")
-var express = require("express")
-var router = express.Router()
-var userModel = require("../module/users")
+require("../module/mongoose");
+var express = require("express");
+var router = express.Router();
+var User = require("../module/users");
+const bcrypt = require("bcrypt");
+const STRINGS = require("../utils/texts");
 
 /* GET home page. */
 router.get("/", async function (req, res) {
   try {
-    var cookeData = req.cookies.jwt
+    var cookeData = req.cookies.jwt;
     if (cookeData) {
-      var currentUser = await userModel.findOne({ _id: cookeData })
+      var currentUser = await User.findOne({ _id: cookeData });
 
-      res.render("create-user", { passError: "", currentUser: currentUser })
+      res.render("create-user", { passError: "", currentUser: currentUser });
     } else {
-      res.redirect("login")
+      res.redirect("login");
     }
   } catch (error) {}
-})
+});
 
-router.post("/", async function (req, res) {
+router.post("/", async function (req, res, next) {
   try {
-    var name = req.body.name
-    var lastname = req.body.lname
-    var email = req.body.email
-    var number = req.body.phoneNumber
-    var password = req.body.password
-    var cpassword = req.body.cpassword
+    const data = req.body;
 
-    if (password != cpassword) {
-      res.render("create-user", { passError: "password does not match" })
-    } else {
-      // var users = await userModel.findOne({userType : "Admin"})
-      // console.log(users);
+    let user = await User.findOne({ email: data.email }); // Check if user exist
 
-      var newUser = new userModel({
-        userType: "User",
-        firstname: name,
-        lastname: lastname,
-        email: email,
-        phone: number,
-        password: password,
-        date: new Date().toLocaleDateString(),
-      })
+    if (user)
+      return res.status(404).send({ message: STRINGS.ERRORS.userExists });
+    var salt = bcrypt.genSaltSync(10);
+    var hash = bcrypt.hashSync(data.password, salt);
+    data.password = hash;
+    data.approve = true;
 
-      newUser.save(function (err, data) {
-        if (err) throw err
-        res.redirect("users-list")
-      })
-    }
-  } catch (error) {}
-})
-
-module.exports = router
+    user = await User.create(data);
+    let users = await User.find().sort({ createdAt: -1 });
+    res.json({ message: STRINGS.TEXTS.userCreated, users });
+  } catch (error) {
+    console.log("Error--->", error);
+    res.status(500).json({ message: error.message });
+  }
+});
+module.exports = router;
