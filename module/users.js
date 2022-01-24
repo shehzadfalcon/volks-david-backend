@@ -3,12 +3,16 @@ const STRINGS = require("../utils/texts");
 
 const userSchema = new mongoose.Schema(
   {
-    userType: {
+    role: {
       type: String,
       required: false,
+      enum: ["User", "Admin"],
       default: "User",
     },
-
+    approve: {
+      type: Boolean,
+      default: false,
+    },
     firstname: {
       type: String,
       required: true,
@@ -35,7 +39,7 @@ const userSchema = new mongoose.Schema(
   {
     timestamps: true,
   }
-)
+);
 
 const userModel = new mongoose.model(STRINGS.MODALS.USER, userSchema);
 

@@ -24,6 +24,9 @@ router.post("/", async function (req, res, next) {
     if (!user)
       return res.status(404).send({ message: STRINGS.ERRORS.emailInvalid });
 
+    if (user.approve !== true) {
+      return res.status(401).send({ message: STRINGS.ERRORS.accountApprove });
+    }
     const isCorrect = await bcrypt.compareSync(data.password, user.password); // Check if user password is correct
     if (!isCorrect)
       return res.status(404).send({ message: STRINGS.ERRORS.passwordInvalid });

@@ -11,6 +11,8 @@ module.exports = {
     emailRequired: "Email Required",
     passwordRequired: "Password Required",
     emailInvalid: "Email Invalid!",
+    accountApprove:
+      "We will approve your account first, after that you can use your account.",
     passwordInvalid: "Password Invalid!",
     tokenInvalid: "Token Invalid!",
     tokenExpired: "Token has expired!",
