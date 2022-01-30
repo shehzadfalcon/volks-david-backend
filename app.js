@@ -37,9 +37,9 @@ var deleteUser = require("./routes/delete-user");
 var app = express();
 // view engine setup
 app.use(cors());
-app.use("/uploads", express.static("uploads"));
 
 app.set("views", path.join(__dirname, "views"));
+app.use("/uploads", express.static("uploads"));
 
 app.set("view engine", "ejs");
 app.use(logger("dev"));
