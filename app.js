@@ -24,7 +24,7 @@ var invoiceList = require("./routes/invoice-list");
 var multer = require("multer");
 var bodyParser = require("body-parser");
 var logoSchema = require("./module/logo");
-var notification = require("./routes/notification");
+var notifications = require("./routes/notification");
 var userPageRouter = require("./routes/create-user");
 var users = require("./routes/usersList");
 var editUser = require("./routes/edit-user");
@@ -40,7 +40,7 @@ var app = express();
 app.use(cors());
 
 app.set("views", path.join(__dirname, "views"));
-app.use("uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads"));
 
 app.set("view engine", "ejs");
 app.use(logger("dev"));
@@ -70,6 +70,7 @@ app.use("/fileUploader", fileUploader);
 app.use("/forgot-password", forgotPassword);
 
 app.use("/delete-user", deleteUser);
+app.use("/notifications", notifications);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
