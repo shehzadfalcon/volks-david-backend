@@ -13,9 +13,10 @@
   <div class="container">
     <div class="card">
       <div class="card-header">
-        <img src="{{from_logo}}" style="width:80">
+        <div style="display:flex;justify-content: space-between;">
+        <img src="{{from_logo}}" style="width:250px;height:250px;">
 
-        <div class="float-right">
+        <div >
           <h2>Invoice</h2>
           <p class="text-bold">Date: {{date}}</p>
           <p class="text-bold">Invoice No: {{from_invoiceNum}}</p>
@@ -29,6 +30,7 @@
 
 
         </div>
+      </div>
       </div>
       <div class="card-body">
         <div class="row mb-4">
@@ -161,7 +163,7 @@
 
       </div>
       <div class="col-sm-7 pt-4 text-right">
-        <img src="{{from_sign}}" style="width:40">
+        <img src="{{from_sign}}" style="width:180px;height:180px;">
 
       </div>
     </div>

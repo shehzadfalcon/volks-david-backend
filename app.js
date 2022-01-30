@@ -19,6 +19,8 @@ var createCustomer = require("./routes/create-customer");
 var editCustomer = require("./routes/edit-customer");
 var dltCustomer = require("./routes/delete-customer");
 var invoice = require("./routes/invoice");
+var approveUser = require("./routes/approve-user");
+
 var generateInvoice = require("./routes/generate-invoice");
 var invoiceList = require("./routes/invoice-list");
 var multer = require("multer");
@@ -71,6 +73,7 @@ app.use("/forgot-password", forgotPassword);
 
 app.use("/delete-user", deleteUser);
 app.use("/notifications", notifications);
+app.use("/approve-user", approveUser);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
