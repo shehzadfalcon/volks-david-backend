@@ -21,7 +21,6 @@ var dltCustomer = require("./routes/delete-customer");
 var invoice = require("./routes/invoice");
 var generateInvoice = require("./routes/generate-invoice");
 var invoiceList = require("./routes/invoice-list");
-var multer = require("multer");
 var bodyParser = require("body-parser");
 var logoSchema = require("./module/logo");
 var notification = require("./routes/notification");
@@ -29,6 +28,7 @@ var userPageRouter = require("./routes/create-user");
 var users = require("./routes/usersList");
 var editUser = require("./routes/edit-user");
 var editProfile = require("./routes/edit-profile");
+var fileUploader = require("./routes/fileUploader");
 
 var forgotPassword = require("./routes/forgot-password");
 
@@ -36,9 +36,12 @@ var deleteUser = require("./routes/delete-user");
 
 var app = express();
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
 app.use(cors());
+app.use("/uploads", express.static("uploads"));
+
+app.set("views", path.join(__dirname, "views"));
+
+app.set("view engine", "ejs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -61,6 +64,7 @@ app.use("/create-user", userPageRouter);
 app.use("/users-list", users);
 app.use("/edit-user", editUser);
 app.use("/edit-profile", editProfile);
+app.use("/fileUploader", fileUploader);
 
 app.use("/forgot-password", forgotPassword);
 

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>VolksAndDavid</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <img src="{{from_logo}}" style="width:80">
+
+        <div class="float-right">
+          <h2>Invoice</h2>
+          <p class="text-bold">Date: {{date}}</p>
+          <p class="text-bold">Invoice No: {{from_invoiceNum}}</p>
+
+          <p class="text-bold">NTN No: {{from_ntnNum}}<p]>
+              <p class="text-bold">INC No: {{from_incNum}}</p>
+              <p class="pt-2">
+              <h5><strong>Amount Due:</strong> {{from_incNum}} PKR
+              </h5>
+          </p>
+
+
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row mb-4">
+          <div class="col-sm-6">
+            <h6 class="mb-3">From:</h6>
+            <div>
+              <strong>{{from_name}}</strong>
+            </div>
+            <div>{{from_address}}</div>
+            <div>Email: {{from_email}}</div>
+            <div>Phone: {{from_phone}}</div>
+
+          </div>
+
+          <div class="col-sm-6">
+            <h6 class="mb-3">To:</h6>
+            <div>
+              <strong>{{to_name}}</strong>
+            </div>
+            <div>{{to_address}}</div>
+            <div>Email: {{to_email}}</div>
+            <div>Phone: {{to_phone}}</div>
+
+
+          </div>
+
+
+
+
+        </div>
+
+        <div class="table-responsive-sm">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="center">Sr#</th>
+                <th>Description</th>
+                <th>QTY</th>
+
+                <th class="right">Unit Price</th>
+                <th class="center">Total Price</th>
+                <th class="right">Discount</th>
+                <th class="right">Net Price</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {{#each products}}
+              <tr>
+
+                <td class="center">{{this.id}}</td>
+                <td class="left strong">{{this.description}}</td>
+                <td class="left">{{this.qty}}</td>
+                <td class="right">{{this.unit_price}}</td>
+                <td class="center">{{this.total_price}}</td>
+                <td class="right">{{this.discount}}</td>
+                <td class="right">{{this.net_price}}</td>
+
+              </tr>
+              {{/each}}
+
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 col-sm-5">
+
+          </div>
+
+          <div class="col-lg-4 col-sm-5 ml-auto">
+            <table class="table table-clear">
+              <tbody>
+                <tr>
+                  <td class="left">
+                    <strong>subTotal</strong>
+                  </td>
+                  <td class="right">{{subTotal}} PKR</td>
+                </tr>
+                <tr>
+                  <td class="left">
+                    <strong>Tax </strong>
+                  </td>
+                  <td class="right">{{tax}} PKR</td>
+                </tr>
+                <tr>
+                  <td class="left">
+                    <strong>Total </strong>
+                  </td>
+                  <td class="right">{{amountAfterDeductTax}} PKR</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="row pt-4">
+
+
+      <div class="col-sm-5 ">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td class="left">
+                <strong>Account Type</strong>
+              </td>
+              <td class="right">{{to_payment}}</td>
+            </tr>
+            <tr>
+              <td class="left">
+                <strong>Account Title </strong>
+              </td>
+              <td class="right">{{to_accountTitle}}</td>
+            </tr>
+            <tr>
+              <td class="left">
+                <strong>Account No. </strong>
+              </td>
+              <td class="right">{{to_accountNum}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+      <div class="col-sm-7 pt-4 text-right">
+        <img src="{{from_sign}}" style="width:40">
+
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
