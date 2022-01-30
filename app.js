@@ -21,6 +21,7 @@ var dltCustomer = require("./routes/delete-customer");
 var invoice = require("./routes/invoice");
 var generateInvoice = require("./routes/generate-invoice");
 var invoiceList = require("./routes/invoice-list");
+var multer = require("multer");
 var bodyParser = require("body-parser");
 var logoSchema = require("./module/logo");
 var notification = require("./routes/notification");
@@ -39,7 +40,7 @@ var app = express();
 app.use(cors());
 
 app.set("views", path.join(__dirname, "views"));
-app.use("/uploads", express.static("uploads"));
+app.use("uploads", express.static("uploads"));
 
 app.set("view engine", "ejs");
 app.use(logger("dev"));
