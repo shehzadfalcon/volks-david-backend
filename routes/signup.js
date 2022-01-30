@@ -38,6 +38,17 @@ router.post("/", async function (req, res, next) {
     var hash = bcrypt.hashSync(data.password, salt);
     data.password = hash;
     user = await User.create(data);
+    await User.findOneAndUpdate(
+      { _id: user._id },
+      {
+        $push: {
+          notifications: {
+            title: `New Account has been created by ${user.firstname} ${user.lastname}`,
+            description: `New Account has been created by ${user.firstname} ${user.lastname}`,
+          },
+        },
+      }
+    );
     let users = await User.find().sort({ createdAt: -1 });
     res.json({ message: STRINGS.TEXTS.userCreated, users });
   } catch (error) {

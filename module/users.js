@@ -33,6 +33,19 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    notifications: [
+      {
+        title: String,
+        description: String,
+        color: { type: String, default: "#ccc" },
+        statusNew: { type: Boolean, default: true },
+
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
     resetPasswordToken: String,
     resetPasswordExpires: String,
   },
