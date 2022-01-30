@@ -7,6 +7,7 @@ var router = express.Router();
 const bcrypt = require("bcrypt");
 var User = require("../module/users");
 const STRINGS = require("../utils/texts");
+const MailService = require("../services/mail.service");
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require("node-localstorage").LocalStorage;
@@ -39,7 +40,7 @@ router.post("/", async function (req, res, next) {
     data.password = hash;
     user = await User.create(data);
     await User.findOneAndUpdate(
-      { _id: user._id },
+      { role: "Admin" },
       {
         $push: {
           notifications: {
@@ -49,6 +50,9 @@ router.post("/", async function (req, res, next) {
         },
       }
     );
+    let emailService = new MailService();
+    await emailService.sendEmailToAdmin(user); //email send for verification
+
     let users = await User.find().sort({ createdAt: -1 });
     res.json({ message: STRINGS.TEXTS.userCreated, users });
   } catch (error) {

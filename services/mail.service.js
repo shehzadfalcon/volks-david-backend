@@ -1,10 +1,10 @@
-const nodemailer = require("nodemailer")
-const handlebars = require("handlebars")
-const fs = require("fs")
-const path = require("path")
-const STRINGS = require("../utils/texts")
-const ENV = process.env
-console.log(ENV.MAILER_PASSWORD, "ENV")
+const nodemailer = require("nodemailer");
+const handlebars = require("handlebars");
+const fs = require("fs");
+const path = require("path");
+const STRINGS = require("../utils/texts");
+const ENV = process.env;
+console.log(ENV.MAILER_PASSWORD, "ENV");
 class MailService {
   constructor() {
     this.transporter = nodemailer.createTransport({
@@ -13,62 +13,88 @@ class MailService {
         user: ENV.MAILER_SENDER_EMAIL,
         pass: ENV.MAILER_PASSWORD,
       },
-    })
+    });
   }
 
   async requestEmailVerification(to, token) {
-    let from = `${ENV.APP_NAME} <no-reply${ENV.MAILER_DOMAIN}>`
+    let from = `${ENV.APP_NAME} <no-reply${ENV.MAILER_DOMAIN}>`;
     if (!to)
-      res.status(400).send(response(STRINGS.TEXTS.STRINGS.ERRORS.userNotFound))
+      res.status(400).send(response(STRINGS.TEXTS.STRINGS.ERRORS.userNotFound));
     // Email Starts
-    const filePath = path.join(__dirname, "../html_templates/userCreated.html")
-    let link = process.env.BASE_URL + "/api/auth/verify/" + token
-    const source = fs.readFileSync(filePath, "utf-8").toString()
-    const template = handlebars.compile(source)
+    const filePath = path.join(__dirname, "../html_templates/userCreated.html");
+    let link = process.env.BASE_URL + "/api/auth/verify/" + token;
+    const source = fs.readFileSync(filePath, "utf-8").toString();
+    const template = handlebars.compile(source);
     const replacements = {
       name: to.email,
       email: to.email,
       link: link,
-    }
-    const htmlToSend = template(replacements)
+    };
+    const htmlToSend = template(replacements);
     await this.transporter.sendMail({
       from,
       to: Array.isArray(to.email) ? to.join() : to.email,
       subject: STRINGS.TEXTS.requestEmailVerificationSubject,
       html: htmlToSend,
-    })
+    });
 
-    return
+    return;
   }
 
   async sendForgotPasswordEmail(to, token) {
-    let from = `${ENV.APP_NAME} <no-reply${ENV.MAILER_DOMAIN}>`
+    let from = `${ENV.APP_NAME} <no-reply${ENV.MAILER_DOMAIN}>`;
     if (!to)
-      res.status(400).send(response(STRINGS.TEXTS.STRINGS.ERRORS.userNotFound))
+      res.status(400).send(response(STRINGS.TEXTS.STRINGS.ERRORS.userNotFound));
     // Email Starts
     const filePath = path.join(
       __dirname,
       "../html_templates/requestResetPassword.html"
-    )
-    let link = process.env.CLIENT_URL + "reset-password/" + token
-    const source = fs.readFileSync(filePath, "utf-8").toString()
-    const template = handlebars.compile(source)
+    );
+    let link = process.env.CLIENT_URL + "reset-password/" + token;
+    const source = fs.readFileSync(filePath, "utf-8").toString();
+    const template = handlebars.compile(source);
     const replacements = {
       name: to.email,
       email: to.email,
       link: link,
-    }
-    const htmlToSend = template(replacements)
+    };
+    const htmlToSend = template(replacements);
 
     await this.transporter.sendMail({
       from,
       to: Array.isArray(to.email) ? to.join() : to.email,
       subject: STRINGS.TEXTS.resetEmailVerificationSubject,
       html: htmlToSend,
-    })
+    });
 
-    return
+    return;
+  }
+
+  // notification mail
+  async sendEmailToAdmin(to) {
+    let from = `${ENV.APP_NAME} <no-reply${ENV.MAILER_DOMAIN}>`;
+    if (!to)
+      res.status(400).send(response(STRINGS.TEXTS.STRINGS.ERRORS.userNotFound));
+    // Email Starts
+    const filePath = path.join(__dirname, "../html_templates/userCreated.html");
+
+    const source = fs.readFileSync(filePath, "utf-8").toString();
+    const template = handlebars.compile(source);
+    const replacements = {
+      firstname: to.firstname,
+      lastname: to.lastname,
+    };
+    const htmlToSend = template(replacements);
+
+    await this.transporter.sendMail({
+      from,
+      to: process.env.ADMIN_EMAIL,
+      subject: "Account Created",
+      html: htmlToSend,
+    });
+
+    return;
   }
 }
 
-module.exports = MailService
+module.exports = MailService;
