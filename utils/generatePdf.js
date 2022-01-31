@@ -6,6 +6,7 @@ exports.GeneratePdf = async (html = "") => {
   const browser = await puppeteer.launch({
     args: ["--no-sandbox"],
     ignoreDefaultArgs: ["--disable-extensions"],
+    executablePath: "/usr/bin/chromium-browser",
   });
   const page = await browser.newPage();
   await page.setContent(html, {
