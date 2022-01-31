@@ -5,8 +5,8 @@ const optionsPDF = { width: 1024, height: 768 };
 exports.GeneratePdf = async (html = "") => {
   const browser = await puppeteer.launch({
     args: ["--no-sandbox"],
-    ignoreDefaultArgs: ["--disable-extensions"],
-    executablePath: "/usr/bin/chromium-browser",
+    // ignoreDefaultArgs: ["--disable-extensions"],
+    // executablePath: "/usr/bin/chromium-browser",
     headless: false,
   });
   const page = await browser.newPage();
