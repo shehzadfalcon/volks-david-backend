@@ -7,6 +7,7 @@ exports.GeneratePdf = async (html = "") => {
     args: ["--no-sandbox"],
     ignoreDefaultArgs: ["--disable-extensions"],
     executablePath: "/usr/bin/chromium-browser",
+    headless: false,
   });
   const page = await browser.newPage();
   await page.setContent(html, {
