@@ -32,6 +32,7 @@ router.post("/", async function (req, res, next) {
       return res.status(404).send({ message: STRINGS.ERRORS.passwordInvalid });
 
     const token = await JWT.sign({ id: user._id }, process.env.JWT_SECRET); //token generation
+    // delete user.notifications;
 
     const result = {
       user,
